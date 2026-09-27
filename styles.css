@@ -27,42 +27,38 @@ header {
 
 header nav {
     display: flex;
-    width: 97%;
+    width: 90%;
+    max-width: 1200px;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
+}
 
-    .logo img {
-        height: 8vh;
-        border-radius: 50%;
+.logo {
+    display: flex;
+    align-items: center;
+}
 
-    }
+.logo img {
+    height: 8vh;
+    border-radius: 50%;
+}
 
-    a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-    }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
 
-    ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-    }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
 
-    ul li a:hover {
-        color: #C778DD;
-        transition: 0.3s;
-    }
-
-    select {
-        height: 30px;
-        background-color: #282C33;
-        color: white;
-        border: none;
-    }
+.nav-links a:hover {
+    color: #C778DD;
 }
 
 #works {
