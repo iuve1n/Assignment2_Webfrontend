@@ -1,6 +1,6 @@
 # Assignment 2
 
-This is my second frontend assignment. The first page uses Flexbox for the navigation bar and a row of project cards.
+This is my second frontend assignment about Flexbox and CSS Grid. It has a Flexbox card page, a Grid page layout, and an image gallery.
 
 ## Technologies
 
