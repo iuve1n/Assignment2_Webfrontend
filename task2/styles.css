@@ -3,151 +3,157 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: "Fira Code", sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #282C33;
     color: white;
 }
 
 .container {
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 10vh 1fr auto;
     grid-template-areas:
         "header header"
-        "sidebar menu"
-        "footer footer"
-    ;
-
+        "sidebar main"
+        "footer footer";
 }
 
 header {
     grid-area: header;
-    height: 10vh;
     position: sticky;
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(40px);
-    border-bottom: 1px solid #C778DD;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #282C33e8;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #C778DD;
 }
 
 header nav {
+    width: 94%;
     display: flex;
-    width: 97%;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-
-    .logo img {
-        height: 8vh;
-        border-radius: 50%;
-
-    }
-
-    a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-    }
-
-    select {
-        height: 30px;
-        background-color: #282C33;
-        color: white;
-        border: none;
-    }
 }
 
-ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-aside {
-    height: auto;
+.logo {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #C778DD;
-
-    ul {
-        position: fixed;
-        top: 40%;
-        height: 20vh;
-        display: flex;
-        flex-direction: column;
-        margin: 3vw;
-    }
-
 }
 
-ul li {
+.logo img {
+    height: 8vh;
+    border-radius: 50%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     list-style: none;
 }
 
 a {
-    text-decoration: none;
     color: white;
-    transition: 0.5s;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
-    font-size: 20px;
     color: #C778DD;
-    transition: 0.6s;
+}
+
+aside {
+    grid-area: sidebar;
+    border-right: 1px solid #C778DD;
+}
+
+aside ul {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 200px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
 }
 
 main {
-    height: auto;
+    grid-area: main;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10vh;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-    border-bottom: 1px solid #C778DD;
+    padding: 10vh 0;
 }
 
 .project-card {
+    width: min(90%, 900px);
+    min-height: 500px;
     scroll-margin-top: 15vh;
-    background-color: #393e47a1;
-    backdrop-filter: blur(40px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 12px;
+    padding: 30px;
     text-align: center;
-    width: 70vw;
-    height: 50vh;
-    border: 1px solid;
+    background-color: #393e47a1;
+    backdrop-filter: blur(20px);
+    border: 1px solid white;
     border-radius: 20px;
+    transition: border-color 0.3s;
+}
 
-    img {
-        height: 20vw;
-        width: auto;
-        transition: 0.5s;
-        border: 1px solid;
-        border-radius: 10%;
-    }
+.project-card img {
+    width: min(280px, 80%);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid white;
+    border-radius: 10%;
 }
 
 .project-card:hover {
     border-color: #C778DD;
-    transition: 0.5s;
+}
+
+footer {
+    grid-area: footer;
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid #C778DD;
+}
+
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: 110px 1fr;
+    }
+
+    aside ul {
+        width: 110px;
+    }
+
+    .nav-links {
+        gap: 10px;
+        font-size: 12px;
+    }
+
+    .project-card {
+        min-height: 420px;
+        padding: 20px;
+    }
 }
