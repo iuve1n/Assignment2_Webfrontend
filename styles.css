@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -62,14 +63,14 @@ header nav {
 }
 
 #works {
-    padding: 10vh;
-    height: 100vh;
+    min-height: 90vh;
+    padding: 60px 5%;
     border-bottom: 1px solid #C778DD;
-    margin: 0 0 0 0;
+}
 
-    h1 {
-        text-align: center;
-    }
+#works > h2 {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .works-container {
@@ -79,10 +80,12 @@ header nav {
 
 .works-description {
     display: flex;
-    justify-content: space-around;
-    height: 90vh;
-    max-width: 90vw;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
+    max-width: 1100px;
 }
 
 .project-card {
@@ -92,22 +95,57 @@ header nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 12px;
     text-align: center;
-    height: 500px;
+    height: 520px;
     width: 300px;
+    padding: 20px;
     border: 1px solid;
     border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
 .project-card:hover {
     border-color: #C778DD;
-    transition: 0.5s;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px #17191d;
 }
 
 .works-description img {
-    height: 20vw;
-    width: auto;
-    transition: 0.5s;
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
     border: 1px solid;
     border-radius: 10%;
+}
+
+.project-card button {
+    margin-top: auto;
+    padding: 10px 18px;
+    font-family: inherit;
+    color: white;
+    background-color: transparent;
+    border: 1px solid #C778DD;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.project-card button:hover {
+    background-color: #C778DD;
+}
+
+@media (max-width: 600px) {
+    header nav {
+        width: 94%;
+    }
+
+    .nav-links {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 320px;
+    }
 }
